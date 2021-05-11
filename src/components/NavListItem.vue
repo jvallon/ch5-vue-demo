@@ -1,11 +1,8 @@
 <template>
   <div id="nav-list-item">
-    <router-link>
-      <button>
-        <font-awesome-icon icon="camera" />
-        <span class="fas fa-user"></span>
-      </button>
-    </router-link>
+    <button>
+      <font-awesome-icon icon="camera" />
+    </button>
   </div>
 </template>
 
@@ -15,6 +12,6 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 
 </style>
