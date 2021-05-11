@@ -3,6 +3,7 @@ import App from './App.vue'
 import store from './store'
 // import './services/webxpanel'
 
+// Crestron libraries
 import * as CrComLib from '@crestron/ch5-crcomlib/build_bundles/cjs/cr-com-lib'
 import { bridgeReceiveIntegerFromNative, bridgeReceiveBooleanFromNative, bridgeReceiveStringFromNative, bridgeReceiveObjectFromNative } from '@crestron/ch5-crcomlib/build_bundles/cjs/cr-com-lib';
 
@@ -18,9 +19,16 @@ Vue.prototype.$CrComLib = CrComLib;
 import * as Crestron from  './api/ch5-wrapper'
 Vue.prototype.$api = Crestron
 
-Vue.config.productionTip = false
+// Font Awesome component
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-// const store = new Vuex.Store(mystore);
+library.add(fas);
+Vue.component('font-awesome-icon', FontAwesomeIcon);
+
+// Vue configs
+Vue.config.productionTip = false
 
 new Vue({
   store,

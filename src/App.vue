@@ -3,7 +3,9 @@
     <div class="grid-container">
       <div class="header"></div>
       <div class="main">
-        <div class="menu-container"></div>
+        <div class="menu-container">
+          <nav-list></nav-list>
+        </div>
         <div class="nav-area"></div>
       </div>
       <div class="footer"></div>
@@ -20,14 +22,15 @@
 
 import { mapState, mapActions } from 'vuex'
 // import Display from './components/Display.vue';
-
+import NavList from '@/components/NavList';
 import * as disp1 from '@/assets/data/tv.js';
 import * as disp2 from '@/assets/data/tv2.js';
 
 export default {
   name: 'App',
   components: {
-    // Display
+    // Display,
+    NavList
   },
   data() {
     return {

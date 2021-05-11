@@ -18,6 +18,10 @@
     "dependencies": {
         "@crestron/ch5-crcomlib": "^1.1.0",
         "@crestron/ch5-webxpanel": "^1.0.3",
+        "@fortawesome/fontawesome-free": "^5.15.3",
+        "@fortawesome/fontawesome-svg-core": "^1.2.35",
+        "@fortawesome/free-solid-svg-icons": "^5.15.3",
+        "@fortawesome/vue-fontawesome": "^2.0.2",
         "core-js": "^3.12.0",
         "vue": "^2.6.12",
         "vuex": "^3.6.2"
