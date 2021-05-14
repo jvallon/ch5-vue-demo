@@ -89,7 +89,6 @@ export default {
 
 .header {
   grid-area: header;
-  /* width: 100%; */
   min-height: 10vh;
   margin: 0px;
   padding: 0px;
@@ -108,13 +107,14 @@ export default {
   /* border-style: solid; */
   display: grid;
   grid-column-gap: 5px;
+  grid-template-columns: 30vw 1fr ;
   grid-template-areas:
-    'menu main main main main';
+    'menu main ';
 }
 
 .menu-container {
   grid-area: menu;
-  /* height: 80vh; */
+  max-width: 30vw;
   border-style: solid;
 }
 
