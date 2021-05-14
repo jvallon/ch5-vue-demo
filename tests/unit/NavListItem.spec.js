@@ -1,5 +1,5 @@
 import { createLocalVue, mount } from '@vue/test-utils'
-import NavListItem from '@/components/NavListItem.vue'
+import NavListItem from '@/components/Navigation/NavListItem.vue'
 import * as ch5WrapperMock from '../mocks/ch5-wrapper.mock.js'
 
 // Font Awesome component

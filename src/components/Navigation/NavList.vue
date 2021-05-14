@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import NavListItem from './NavListItem.vue'
+import NavListItem from '../Navigation/NavListItem.vue'
 import navitems from '@/assets/data/navitems.json'
 
 export default {

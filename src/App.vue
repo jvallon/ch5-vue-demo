@@ -22,7 +22,7 @@
 
 import { mapState, mapActions } from 'vuex'
 // import Display from './components/Display.vue';
-import NavList from '@/components/NavList';
+import NavList from '@/components/Navigation/NavList';
 import * as disp1 from '@/assets/data/tv.js';
 import * as disp2 from '@/assets/data/tv2.js';
 
