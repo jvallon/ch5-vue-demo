@@ -26,5 +26,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.nav-list {
+  display: flex;
+  align-items: center;
+  justify-content: left;
 
+  #label {
+    grid-column: 2 / span 4;
+    font-size: 1.5rem;
+    margin: 1rem;
+    text-align: left;
+    hyphens: auto;
+  }
+
+  #icon {
+    height: 3rem;
+    width: 3rem;
+    padding: 1rem;
+    font-size: 2.5rem;
+  }
+}
 </style>
