@@ -1,45 +1,34 @@
 <template>
 <div class="nav-main">
 
-  <ul>
-    <li>
-      <nav-list-item class="nav-list"></nav-list-item>
-    </li>
-    <li>
-    <nav-list-item class="nav-list"></nav-list-item>
-
-    </li>
-  </ul>
+  <nav-list-item v-for="item in items" :key="item.id"
+    :label="item.label"
+    :icon="item.icon"
+    :join="item.pressJoin"/>
 </div>
 </template>
 
 <script>
 import NavListItem from './NavListItem.vue'
+import navitems from '@/assets/data/navitems.json'
+
 export default {
   components: { NavListItem },
+  // props: {
+  //   items: { type: Array, required: true }
+  // },
+  data() {
+    return {
+      items: navitems
+    }
+  },
+  created() {
+
+  }
 }
 </script>
 
 <style lang="scss">
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  li {
-    line-height: 0;
-  }
-}
-
-.nav-list {
-  
-  button {
-    width: 100%;
-    height: 5rem;
-    justify-content: left;
-    padding: 0 0 0 1rem;
-    font-size: 1.25rem;
-  }
-}
 
 .nav-main {
   height: 100%;
