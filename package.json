@@ -1,53 +1,73 @@
 {
-    "name": "ch5xweb-vue",
-    "version": "0.1.0",
-    "private": true,
-    "scripts": {
-        "serve": "vue-cli-service serve",
-        "build": "vue-cli-service build",
-        "build:archive": "vue-cli-service build && ch5-cli archive -p vue-test -d dist -o release",
-        "build:contract": "vue-cli-service build && ch5-cli archive -p vue-test -d dist -o release -c ./ch5-contract/output/ConnectCH5/interface/mapping/ConnectCH5.cse2j",
-        "build:web": "npm run build && ch5-cli archive -p vuexweb -d dist -o release",
-        "deploy": "ch5-cli deploy -H 192.168.1.22 -t touchscreen ./release/vue-test.ch5z",
-        "deployweb": "ch5-cli deploy -H 192.168.1.240 -p -t web ./release/vuexweb.ch5z",
-        "onestep:tsw": "npm run build:archive && npm run deploy",
-        "onestep:tsw-contract": "npm run build:contract && npm run deploy",
-        "onestep:web": "npm run build:web && npm run deployweb",
-        "lint": "vue-cli-service lint"
+  "name": "ch5xweb-vue",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit",
+    "lint": "vue-cli-service lint",
+    "deploy": "ch5-cli deploy -H 192.168.1.22 -t touchscreen ./release/vue-test.ch5z",
+    "build:archive": "vue-cli-service build && ch5-cli archive -p vue-test -d dist -o release",
+    "build:contract": "vue-cli-service build && ch5-cli archive -p vue-test -d dist -o release -c ./ch5-contract/output/ConnectCH5/interface/mapping/ConnectCH5.cse2j",
+    "build:web": "npm run build && ch5-cli archive -p vuexweb -d dist -o release",
+    "deployweb": "ch5-cli deploy -H 192.168.1.240 -p -t web ./release/vuexweb.ch5z",
+    "onestep:tsw": "npm run build:archive && npm run deploy",
+    "onestep:tsw-contract": "npm run build:contract && npm run deploy",
+    "onestep:web": "npm run build:web && npm run deployweb"
+  },
+  "dependencies": {
+    "@crestron/ch5-crcomlib": "^1.1.0",
+    "@crestron/ch5-webxpanel": "^1.0.3",
+    "@fortawesome/fontawesome-free": "^5.15.3",
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/vue-fontawesome": "^2.0.2",
+    "core-js": "^3.12.1",
+    "vue": "^2.6.12",
+    "vuex": "^3.6.2"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.5.13",
+    "@vue/cli-plugin-eslint": "^4.5.13",
+    "@vue/cli-plugin-unit-jest": "^4.5.13",
+    "@vue/cli-service": "^4.5.13",
+    "@vue/test-utils": "^1.2.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-vue": "^6.2.2",
+    "sass": "^1.32.13",
+    "sass-loader": "^10.2.0",
+    "vue-template-compiler": "^2.6.12"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
     },
-    "dependencies": {
-        "@crestron/ch5-crcomlib": "^1.1.0",
-        "@crestron/ch5-webxpanel": "^1.0.3",
-        "core-js": "^3.12.0",
-        "vue": "^2.6.12",
-        "vuex": "^3.6.2"
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
     },
-    "devDependencies": {
-        "@vue/cli-plugin-babel": "^4.5.12",
-        "@vue/cli-plugin-eslint": "^4.5.12",
-        "@vue/cli-service": "^4.5.12",
-        "babel-eslint": "^10.1.0",
-        "eslint": "^6.8.0",
-        "eslint-plugin-vue": "^6.2.2",
-        "vue-template-compiler": "^2.6.12"
-    },
-    "eslintConfig": {
-        "root": true,
-        "env": {
-            "node": true
-        },
-        "extends": [
-            "plugin:vue/essential",
-            "eslint:recommended"
+    "rules": {},
+    "overrides": [
+      {
+        "files": [
+          "**/__tests__/*.{j,t}s?(x)",
+          "**/tests/unit/**/*.spec.{j,t}s?(x)"
         ],
-        "parserOptions": {
-            "parser": "babel-eslint"
-        },
-        "rules": {}
-    },
-    "browserslist": [
-        "> 1%",
-        "last 2 versions",
-        "not dead"
+        "env": {
+          "jest": true
+        }
+      }
     ]
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
 }
