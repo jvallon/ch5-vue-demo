@@ -26,11 +26,11 @@ describe('NavListItem.vue', () => {
     })
   }
   
-  it('tests if api mocked automatically', () => {
-    // Public methods of `utils` are now mock functions
-    expect(ch5WrapperMock.press.mock).toBeTruthy();
-    expect(ch5WrapperMock.release.mock).toBeTruthy();
-  })
+  // it('tests if api mocked automatically', () => {
+  //   // Public methods of `utils` are now mock functions
+  //   expect(ch5WrapperMock.press.mock).toBeTruthy();
+  //   expect(ch5WrapperMock.release.mock).toBeTruthy();
+  // })
     
   it('renders label when passed', () => {
     const wrapper = navFactory()
