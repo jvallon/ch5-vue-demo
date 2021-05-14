@@ -1,9 +1,10 @@
 <template>
-  <div id="nav-list-item">
-    <button @click="onClick">
-      <font-awesome-icon :icon="icon" v-if="icon.length > 0"/>
+  <div id="nav-list-item" class="nav-list" @click="onClick">
+    <font-awesome-icon id="icon" :icon="icon" v-if="icon.length > 0"/>
+      <span v-else id="icon"></span>
+    <span id="label">
       {{ label }}
-    </button>
+    </span>
   </div>
 </template>
 
