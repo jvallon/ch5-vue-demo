@@ -1,5 +1,5 @@
 import { createLocalVue, mount } from '@vue/test-utils'
-import NavListItem from '@/components/NavListItem.vue'
+import NavListItem from '@/components/Navigation/NavListItem.vue'
 import * as ch5WrapperMock from '../mocks/ch5-wrapper.mock.js'
 
 // Font Awesome component
@@ -45,13 +45,24 @@ describe('NavListItem.vue', () => {
     expect(wrapper.find(`[data-icon=${icon}`)).toBeTruthy();
   })
 
-  it('sends press and release on click', async () => {
+  it('sends press and release on label click', async () => {
     const btnJoin = "1"
     const wrapper = navFactory({ join: btnJoin })
     const spyPress = jest.spyOn(wrapper.vm.$api, 'press');
     const spyRelease = jest.spyOn(wrapper.vm.$api, 'release');
     
-    wrapper.find("button").trigger("click")
+    wrapper.find("#label").trigger("click")
+    expect(spyPress).toHaveBeenCalledWith(btnJoin)
+    expect(spyRelease).toHaveBeenCalledWith(btnJoin)
+  })
+
+  it('sends press and release on icon click', async () => {
+    const btnJoin = "1"
+    const wrapper = navFactory({ icon: "camera", join: btnJoin })
+    const spyPress = jest.spyOn(wrapper.vm.$api, 'press');
+    const spyRelease = jest.spyOn(wrapper.vm.$api, 'release');
+    
+    wrapper.find("#icon").trigger("click")
     expect(spyPress).toHaveBeenCalledWith(btnJoin)
     expect(spyRelease).toHaveBeenCalledWith(btnJoin)
   })

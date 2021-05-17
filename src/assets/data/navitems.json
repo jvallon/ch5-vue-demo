@@ -1,0 +1,24 @@
+[{
+    "id": "1",
+    "label": "Menu 1",
+    "pressJoin": "1",
+    "icon": "camera"
+  },
+  {
+    "id": "2",
+    "label": "Menu 2",
+    "pressJoin": "2",
+    "icon": "coffee"
+  },
+  {
+    "id": "3",
+    "label": "Really long menu item should wrap",
+    "pressJoin": "2",
+    "icon": "user"
+  },
+  {
+    "id": "4",
+    "label": "No icon should keep alignment",
+    "pressJoin": "2"
+  }
+]
