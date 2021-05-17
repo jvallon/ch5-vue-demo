@@ -6,7 +6,9 @@
         <div class="menu-container">
           <nav-list></nav-list>
         </div>
-        <div class="nav-area"></div>
+        <div class="nav-area">
+          <router-view></router-view>
+        </div>
       </div>
       <div class="footer"></div>
     </div>
