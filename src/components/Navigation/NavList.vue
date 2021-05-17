@@ -4,7 +4,8 @@
   <nav-list-item v-for="item in items" :key="item.id"
     :label="item.label"
     :icon="item.icon"
-    :join="item.pressJoin"/>
+    :join="item.pressJoin"
+    :routeTo="item.routeTo"/>
 </div>
 </template>
 

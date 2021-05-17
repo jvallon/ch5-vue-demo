@@ -1,11 +1,13 @@
 <template>
-  <div id="nav-list-item" class="nav-list" @click="onClick">
-    <font-awesome-icon id="icon" :icon="icon" v-if="icon.length > 0"/>
-      <span v-else id="icon"></span>
-    <span id="label">
-      {{ label }}
-    </span>
+    <router-link :to="routeTo">
+  <div id="nav-list-item" class="nav-list-item" @click="onClick" >
+      <font-awesome-icon id="icon" :icon="icon" v-if="icon.length > 0"/>
+        <span v-else id="icon"></span>
+      <span id="label">
+        {{ label }}
+      </span>
   </div>
+    </router-link>
 </template>
 
 <script>
@@ -14,7 +16,8 @@ export default {
   props: {
     label: { type: String, required: true },
     icon: { type: String, default: "" },
-    join: { type: String }
+    join: { type: String },
+    routeTo: { type: String, default: '/' }
   },
   methods: {
     onClick() {
@@ -26,10 +29,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.nav-list {
+
+a, a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+.router-link-exact-active {
+  background-color: lightblue;
+}
+.nav-list-item {
   display: flex;
   align-items: center;
   justify-content: left;
+
 
   #label {
     grid-column: 2 / span 4;

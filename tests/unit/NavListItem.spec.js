@@ -1,4 +1,6 @@
 import { createLocalVue, mount } from '@vue/test-utils'
+import VueRouter from 'vue-router';
+
 import NavListItem from '@/components/Navigation/NavListItem.vue'
 import * as ch5WrapperMock from '../mocks/ch5-wrapper.mock.js'
 
@@ -10,19 +12,27 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 const localVue = createLocalVue();
 library.add(fas);
 localVue.component('font-awesome-icon', FontAwesomeIcon);
+localVue.use(VueRouter);
+
+const router = new VueRouter();
+const $route = {
+  path: '/testpath'
+}
 
 describe('NavListItem.vue', () => {
   const label = "test label"
   const navFactory = (propsData) => {
     return mount(NavListItem, {
       mocks: {
-        $api: ch5WrapperMock
+        $api: ch5WrapperMock,
+        // $route: $route
       },
       propsData: {
         label,
         ...propsData
       },
-      localVue
+      localVue,
+      router
     })
   }
   
@@ -65,5 +75,14 @@ describe('NavListItem.vue', () => {
     wrapper.find("#icon").trigger("click")
     expect(spyPress).toHaveBeenCalledWith(btnJoin)
     expect(spyRelease).toHaveBeenCalledWith(btnJoin)
+  })
+
+  it('routes to the routeTo param on click', () => {
+    const icon = "camera"
+    const btnJoin = "1"
+    const wrapper = navFactory({icon: icon, join: btnJoin, routeTo: $route.path})
+    wrapper.find("#icon").trigger("click")
+
+    expect(wrapper.vm.$route.path).toEqual($route.path);
   })
 })

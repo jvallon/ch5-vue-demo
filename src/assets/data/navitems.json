@@ -2,7 +2,8 @@
     "id": "1",
     "label": "Menu 1",
     "pressJoin": "1",
-    "icon": "camera"
+    "icon": "camera",
+    "routeTo": "/presentation"
   },
   {
     "id": "2",
