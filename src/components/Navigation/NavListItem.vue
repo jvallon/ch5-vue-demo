@@ -1,13 +1,13 @@
 <template>
-    <router-link :to="routeTo">
   <div id="nav-list-item" class="nav-list-item" @click="onClick" >
+    <router-link :to="routeTo">
       <font-awesome-icon id="icon" :icon="icon" v-if="icon.length > 0"/>
         <span v-else id="icon"></span>
       <span id="label">
         {{ label }}
       </span>
-  </div>
     </router-link>
+  </div>
 </template>
 
 <script>
@@ -30,19 +30,22 @@ export default {
 
 <style lang="scss" scoped>
 
-a, a:visited {
-  text-decoration: none;
-  color: black;
-}
 
-.router-link-exact-active {
-  background-color: lightblue;
-}
 .nav-list-item {
   display: flex;
   align-items: center;
   justify-content: left;
 
+  a, a:visited {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    width: 100%;
+  }
+
+  .router-link-exact-active {
+    background-color: lightblue;
+  }
 
   #label {
     grid-column: 2 / span 4;

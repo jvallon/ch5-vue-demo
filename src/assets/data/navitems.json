@@ -9,17 +9,20 @@
     "id": "2",
     "label": "Menu 2",
     "pressJoin": "2",
-    "icon": "coffee"
+    "icon": "coffee",
+    "routeTo": "/presentation"
   },
   {
     "id": "3",
     "label": "Really long menu item should wrap",
     "pressJoin": "2",
-    "icon": "user"
+    "icon": "user",
+    "routeTo": "/"
   },
   {
     "id": "4",
     "label": "No icon should keep alignment",
-    "pressJoin": "2"
+    "pressJoin": "2",
+    "routeTo": "/"
   }
 ]
