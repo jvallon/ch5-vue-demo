@@ -67,13 +67,36 @@ export default {
 </script>
 
 <style>
+html {
+  width: 100%;
+  height: 100%;
+}
+
+/* fixed position to fix scrolling and other anomolies */
+body {
+  position: fixed; /* fixes android scroll bubbles */
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   margin: -8px -8px;
+  background-color: white;
 }
+
+/* 
+body::-webkit-scrollbar, .main-controls::-webkit-scrollbar, .page-controls::-webkit-scrollbar {
+  width: 10px;   
+  display: none;      
+  overflow: hidden;
+} */
 
 .active {
     background-color: blue;
@@ -81,6 +104,7 @@ export default {
 
 .grid-container {
   height: 100vh;
+  width: calc(100% - 16px);
   display: grid;
   grid-gap: 5px;
   grid-template-areas: 
