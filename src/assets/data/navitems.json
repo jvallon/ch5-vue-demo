@@ -23,6 +23,7 @@
     "id": "4",
     "label": "No icon should keep alignment",
     "pressJoin": "2",
+    "icon": "",
     "routeTo": "/"
   }
 ]

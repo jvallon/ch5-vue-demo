@@ -4,7 +4,7 @@
       <div class="header"></div>
       <div class="main">
         <div class="menu-container">
-          <nav-list :items="navListItems"></nav-list>
+          <nav-list :items="navListItems" :namespace="'mainnav'"></nav-list>
         </div>
         <div class="nav-area">
           <router-view></router-view>
