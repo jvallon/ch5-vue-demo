@@ -55,33 +55,36 @@ describe('NavListItem.vue', () => {
     expect(wrapper.find(`[data-icon=${icon}`)).toBeTruthy();
   })
 
-  it('sends press and release on label click', async () => {
+  it('emits clicked on label click', async () => {
     const btnJoin = "1"
     const wrapper = navFactory({ join: btnJoin })
-    const spyPress = jest.spyOn(wrapper.vm.$api, 'press');
-    const spyRelease = jest.spyOn(wrapper.vm.$api, 'release');
     
-    wrapper.find("#label").trigger("click")
-    expect(spyPress).toHaveBeenCalledWith(btnJoin)
-    expect(spyRelease).toHaveBeenCalledWith(btnJoin)
+    wrapper.find(".label").trigger("click")
+    expect(wrapper.emitted().clicked).toEqual([[]]);
   })
 
-  it('sends press and release on icon click', async () => {
+  it('emits clicked on icon click', async () => {
     const btnJoin = "1"
     const wrapper = navFactory({ icon: "camera", join: btnJoin })
-    const spyPress = jest.spyOn(wrapper.vm.$api, 'press');
-    const spyRelease = jest.spyOn(wrapper.vm.$api, 'release');
     
-    wrapper.find("#icon").trigger("click")
-    expect(spyPress).toHaveBeenCalledWith(btnJoin)
-    expect(spyRelease).toHaveBeenCalledWith(btnJoin)
+    wrapper.find(".icon").trigger("click")
+    expect(wrapper.emitted().clicked).toEqual([[]]);
   })
 
-  it('routes to the routeTo param on click', () => {
+  it('routes to the routeTo param on icon click', () => {
     const icon = "camera"
     const btnJoin = "1"
     const wrapper = navFactory({icon: icon, join: btnJoin, routeTo: $route.path})
-    wrapper.find("#icon").trigger("click")
+    wrapper.find(".icon").trigger("click")
+
+    expect(wrapper.vm.$route.path).toEqual($route.path);
+  })
+
+  it('routes to the routeTo param on label click', () => {
+    const icon = "camera"
+    const btnJoin = "1"
+    const wrapper = navFactory({icon: icon, join: btnJoin, routeTo: $route.path})
+    wrapper.find(".label").trigger("click")
 
     expect(wrapper.vm.$route.path).toEqual($route.path);
   })

@@ -5,7 +5,8 @@
     :label="item.label"
     :icon="item.icon"
     :join="item.pressJoin"
-    :routeTo="item.routeTo"/>
+    :routeTo="item.routeTo"
+    @clicked="onClick(item)"/>
 </div>
 </template>
 
@@ -15,12 +16,10 @@ import navitems from '@/assets/data/navitems.json'
 
 export default {
   components: { NavListItem },
-  // props: {
-  //   items: { type: Array, required: true }
-  // },
-  data() {
-    return {
-      items: navitems
+  methods: {
+    onClick(item) {
+      this.$api.press(item.pressJoin);
+      this.$api.release(item.pressJoin);
     }
   },
   created() {
