@@ -12,10 +12,12 @@
 
 <script>
 import NavListItem from '../Navigation/NavListItem.vue'
-import navitems from '@/assets/data/navitems.json'
 
 export default {
   components: { NavListItem },
+  props: {
+    items: { type: Array, required: true }
+  },
   methods: {
     onClick(item) {
       this.$api.press(item.pressJoin);

@@ -4,7 +4,7 @@
       <div class="header"></div>
       <div class="main">
         <div class="menu-container">
-          <nav-list></nav-list>
+          <nav-list :items="navListItems"></nav-list>
         </div>
         <div class="nav-area">
           <router-view></router-view>
@@ -27,6 +27,7 @@ import { mapState, mapActions } from 'vuex'
 import NavList from '@/components/Navigation/NavList';
 import * as disp1 from '@/assets/data/tv.js';
 import * as disp2 from '@/assets/data/tv2.js';
+import navitems from '@/assets/data/navitems.json';
 
 export default {
   name: 'App',
@@ -36,6 +37,7 @@ export default {
   },
   data() {
     return {
+      navListItems: navitems,
       disp1: disp1.default,
       disp2: disp2.default
     }
