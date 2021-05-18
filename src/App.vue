@@ -80,6 +80,7 @@ body {
   height: 100%;
   max-height: 100%;
   overflow: hidden;
+  margin: 0px; /* fill the screen */
 }
 
 #app {
@@ -87,7 +88,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  margin: -8px -8px;
   background-color: white;
 }
 
@@ -104,7 +104,6 @@ body::-webkit-scrollbar, .main-controls::-webkit-scrollbar, .page-controls::-web
 
 .grid-container {
   height: 100vh;
-  width: calc(100% - 16px);
   display: grid;
   grid-gap: 5px;
   grid-template-areas: 
