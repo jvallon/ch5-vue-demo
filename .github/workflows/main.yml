@@ -29,17 +29,5 @@ jobs:
       - name: Build and test
         run: |
           npm install
-#          npm run test:unit
+          npm run test:unit
         
-
-  test:
-    # Type
-    runs-on: ubuntu-latest
-    
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      # Runs a set of commands using the runners shell
-      - name: Test
-        run: |
-          echo npm run test:unit
