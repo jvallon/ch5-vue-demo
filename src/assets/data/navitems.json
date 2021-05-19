@@ -1,29 +1,43 @@
 [{
     "id": "1",
     "label": "Menu 1",
-    "pressJoin": "1",
     "icon": "camera",
-    "routeTo": "/presentation"
+    "route": "/presentation",
+    "events": [{
+      "type": "b",
+      "join": "1"
+    }],
+    "subscriptions": [{
+        "type": "b",
+        "join": "1",
+        "action": "setActiveState"
+      },
+      {
+        "type": "s",
+        "join": "1",
+        "action": "setLabel"
+      }
+    ]
   },
   {
     "id": "2",
     "label": "Menu 2",
     "pressJoin": "2",
     "icon": "coffee",
-    "routeTo": "/presentation"
+    "route": "/presentation"
   },
   {
     "id": "3",
     "label": "Really long menu item should wrap",
-    "pressJoin": "2",
+    "pressJoin": "3",
     "icon": "user",
-    "routeTo": "/"
+    "route": "/"
   },
   {
     "id": "4",
     "label": "No icon should keep alignment",
-    "pressJoin": "2",
+    "pressJoin": "4",
     "icon": "",
-    "routeTo": "/"
+    "route": "/"
   }
 ]

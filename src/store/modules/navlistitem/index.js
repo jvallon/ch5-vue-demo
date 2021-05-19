@@ -3,10 +3,13 @@ export const navlistitem = {
   state() {
     return {
       isActive: false,
+      isHidden: false,
+      isDisabled: false,
       label: 'Default Label',
       icon: '',
       route: '/',
-      pressJoin: ''
+      pressJoin: '',
+      events: []
     }
   },
   getters: {
@@ -38,6 +41,9 @@ export const navlistitem = {
     },
     setPressJoin(state, value) {
       state.pressJoin = value;
+    },
+    addEvent(state, data) {
+      state.events.push(data);
     }
   },
   actions: {
@@ -58,20 +64,30 @@ export const navlistitem = {
     initialize({ commit }, data) {
       commit('setLabel', data.label);
       commit('setIcon', data.icon);
-      commit('setRoute', data.routeTo);
-      commit('setPressJoin', data.pressJoin)
-    },
-    subscribeAll({ state, commit }) {
-      if (typeof state.pressJoin !== 'undefined') {
-        this._vm.$api.subscribe('b', state.pressJoin, function(value){
-          commit('setActiveState', value)
+      commit('setRoute', data.route);
+
+      if (typeof data.events !== 'undefined') {
+        data["events"].forEach(event => {
+          if (event.type == "b") {
+            commit('addEvent', event);
+          }
         });
+      }
+
+      if (typeof data.subscriptions !== 'undefined') {
+        data.subscriptions.forEach(sub => {
+          this._vm.$api.subscribe(`${sub.type}`, sub.join, (value) => {
+            commit(`${sub.action}`, value);
+          })
+        })
       }
     },
     clicked({ state }) {
-      if (typeof state.pressJoin !== 'undefined') {
-        this._vm.$api.pulse(state.pressJoin);
-      }
+      state.events.forEach(ev => {
+        if (ev.type === "b") {
+          this._vm.$api.pulse(ev.join);
+        }
+      })
     }
   }
 }

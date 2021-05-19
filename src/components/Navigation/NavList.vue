@@ -20,8 +20,7 @@ export default {
   },
   methods: {
     onClick(item) {
-      this.$api.press(item.pressJoin);
-      this.$api.release(item.pressJoin);
+      this.$store.dispatch(`${this.namespace}/item${item.id}/clicked`);
     }
   },
   computed: {
@@ -29,11 +28,12 @@ export default {
   },
   created() {
     this.items.forEach(item => {
-      this.$store.registerModule(`${this.namespace}/item${item.id}`, listitemmodule)
+      if(! this.$store.hasModule(`${this.namespace}/item${item.id}`)){
+        this.$store.registerModule(`${this.namespace}/item${item.id}`, listitemmodule)
+      }
       this.$store.dispatch(`${this.namespace}/item${item.id}/initialize`, item)
-      this.$store.dispatch(`${this.namespace}/item${item.id}/subscribeAll`)
     });
-  }
+  },
 }
 </script>
 
