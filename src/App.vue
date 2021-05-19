@@ -116,7 +116,7 @@ body::-webkit-scrollbar, .main-controls::-webkit-scrollbar, .page-controls::-web
 
 .header {
   grid-area: header;
-  min-height: 10vh;
+  min-height: 12vh;
   margin: 0px;
   padding: 0px;
   border-style: solid;
@@ -131,23 +131,26 @@ body::-webkit-scrollbar, .main-controls::-webkit-scrollbar, .page-controls::-web
 .main {
   grid-area: main;
   min-height: 70vh;
+  max-height: 78vh;
   /* border-style: solid; */
   display: grid;
   grid-column-gap: 5px;
-  grid-template-columns: 30vw 1fr ;
+  grid-template-columns: 25vw 1fr ;
   grid-template-areas:
     'menu main ';
 }
 
 .menu-container {
   grid-area: menu;
-  max-width: 30vw;
+  max-width: inherit;
   border-style: solid;
+  overflow: scroll;
 }
 
 .nav-area {
   grid-area: main;
-  /* height: 80vh; */
+  min-height: 70vh;
+  max-height: 78vh;
   border-style: solid;
 }
 
