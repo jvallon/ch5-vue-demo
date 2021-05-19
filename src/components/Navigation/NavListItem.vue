@@ -27,8 +27,7 @@ export default {
       label() { return this.$store.state[this.namespace].label },
       icon() { return this.$store.state[this.namespace].icon },
       route() { return this.$store.state[this.namespace].route },
-      isActive(){ return this.$store.state[this.namespace].isActive
-      }
+      isActive(){ return this.$store.state[this.namespace].isActive }
     })
   }
 }
@@ -37,9 +36,9 @@ export default {
 <style lang="scss" scoped>
 
 
-.router-link-exact-active {
+/* .router-link-exact-active {
   background-color: lightblue;
-}
+} */
 
 .active {
   background-color: red;
