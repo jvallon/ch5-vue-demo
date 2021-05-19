@@ -24,6 +24,9 @@ export const navlistitem = {
     },
     isActive(state) {
       return state.isActive;
+    },
+    isDisabled(state) {
+      return state.isDisabled;
     }
   },
   mutations: {
@@ -38,6 +41,12 @@ export const navlistitem = {
     },
     setActiveState(state, value) {
       state.isActive = value;
+    },
+    setDisabledState(state, value) {
+      state.isDisabled = value;
+    },
+    setHiddenState(state, value) {
+      state.isHidden = value;
     },
     setPressJoin(state, value) {
       state.pressJoin = value;
@@ -60,6 +69,12 @@ export const navlistitem = {
       if (state.isActive !== payload) {
         commit('setActiveState', payload);
       }
+    },
+    setDisabledState({ commit }, payload) {
+      commit('setDisabledState', payload);
+    },
+    setHiddenState({ commit }, payload) {
+      commit('setHiddenState', payload);
     },
     initialize({ commit }, data) {
       commit('setLabel', data.label);
