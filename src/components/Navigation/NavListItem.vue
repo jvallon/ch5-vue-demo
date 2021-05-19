@@ -1,6 +1,6 @@
 <template>
   <div id="nav-list-item" class="nav-list-item" @click="onClick()"
-    :class="{active: isActive}">
+    :class="{ active: isActive, disabled: isDisabled }">
     <router-link :to="route" class="rlink">
       <font-awesome-icon class="icon" :icon="icon" v-if="icon.length > 0"/>
         <span v-else class="icon"></span>
@@ -27,7 +27,8 @@ export default {
       label() { return this.$store.state[this.namespace].label },
       icon() { return this.$store.state[this.namespace].icon },
       route() { return this.$store.state[this.namespace].route },
-      isActive(){ return this.$store.state[this.namespace].isActive }
+      isActive(){ return this.$store.state[this.namespace].isActive },
+      isDisabled() { return this.$store.state[this.namespace].isDisabled }
     })
   }
 }
@@ -42,6 +43,18 @@ export default {
 
 .active {
   background-color: red;
+}
+
+.disabled { 
+  pointer-events: none;
+
+  .icon {
+    color: lightgrey;
+  }
+
+  .label {
+    color: lightgrey;
+  }
 }
 
 
