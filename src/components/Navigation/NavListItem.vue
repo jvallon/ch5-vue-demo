@@ -16,15 +16,10 @@ export default {
   name: 'NavListItem',
   props: {
     namespace: {type: String, default: "nav"},
-    // label: { type: String, required: true },
-    // icon: { type: String, default: "" },
-    // join: { type: String },
-    // routeTo: { type: String, default: '/' }
   },
   methods: {
     onClick() {
       this.$emit('clicked');
-      console.log(this.namespace)
     }
   },
   computed: {
@@ -32,7 +27,6 @@ export default {
       label() { return this.$store.state[this.namespace].label },
       icon() { return this.$store.state[this.namespace].icon },
       route() { return this.$store.state[this.namespace].route },
-      pressJoin() { return this.$store.state[this.namespace].pressJoin},
       isActive(){ return this.$store.state[this.namespace].isActive
       }
     })
