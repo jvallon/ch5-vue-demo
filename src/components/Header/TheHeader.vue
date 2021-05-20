@@ -60,15 +60,16 @@ hr {
 }
 
 .subheader {
+  min-width: 30vw;
   margin-left: auto;
-  margin-right: 1rem;
   align-self: right;
-  display:flex;
+  display: flex;
   flex-direction: row-reverse;
-  gap: 2rem;
+  justify-content: space-evenly;
 }
 
 .icon {
+  margin-left: .25rem;
   padding: 1rem;
   font-size: 2.25rem;
 }
