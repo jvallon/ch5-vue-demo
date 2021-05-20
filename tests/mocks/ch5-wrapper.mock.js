@@ -1,11 +1,16 @@
-let lastJoin = ''
-
 function press(join) {
-  lastJoin = join;
 }
 
 function release(join) {
-  lastJoin = join;
 }
 
-export { press, release, lastJoin }
+function pulse(join) {
+  press(join);
+  release(join);
+}
+
+function subscribe(type, join, func) {
+  console.log(`${type},${join},${func}`)
+}
+
+export { press, release, pulse, subscribe }

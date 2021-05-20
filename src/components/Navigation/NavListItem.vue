@@ -1,6 +1,8 @@
 <template>
-  <div id="nav-list-item" class="nav-list-item" @click="onClick()" >
-    <router-link :to="routeTo" class="rlink">
+  <div id="nav-list-item" class="nav-list-item" @click="onClick()"
+    :class="{ active: isActive, disabled: isDisabled }"
+    v-show="!isHidden">
+    <router-link :to="route" class="rlink">
       <font-awesome-icon class="icon" :icon="icon" v-if="icon.length > 0"/>
         <span v-else class="icon"></span>
       <span class="label">{{ label }}</span>
@@ -9,18 +11,27 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
   name: 'NavListItem',
   props: {
-    label: { type: String, required: true },
-    icon: { type: String, default: "" },
-    join: { type: String },
-    routeTo: { type: String, default: '/' }
+    namespace: {type: String, default: "nav"},
   },
   methods: {
     onClick() {
       this.$emit('clicked');
     }
+  },
+  computed: {
+    ...mapState({
+      label() { return this.$store.state[this.namespace].label },
+      icon() { return this.$store.state[this.namespace].icon },
+      route() { return this.$store.state[this.namespace].route },
+      isActive(){ return this.$store.state[this.namespace].isActive },
+      isDisabled() { return this.$store.state[this.namespace].isDisabled },
+      isHidden() { return this.$store.state[this.namespace].isHidden}
+    })
   }
 }
 </script>
@@ -28,8 +39,24 @@ export default {
 <style lang="scss" scoped>
 
 
-.router-link-exact-active {
+/* .router-link-exact-active {
   background-color: lightblue;
+} */
+
+.active {
+  background-color: red;
+}
+
+.disabled { 
+  pointer-events: none;
+
+  .icon {
+    color: lightgrey;
+  }
+
+  .label {
+    color: lightgrey;
+  }
 }
 
 

@@ -1,8 +1,9 @@
 import { createLocalVue, mount } from '@vue/test-utils'
 import VueRouter from 'vue-router';
+import Vuex from 'vuex';
 
 import NavListItem from '@/components/Navigation/NavListItem.vue'
-import * as ch5WrapperMock from '../mocks/ch5-wrapper.mock.js'
+import * as ch5WrapperMock from '../../../tests/mocks/ch5-wrapper.mock.js'
 
 // Font Awesome component
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -13,14 +14,27 @@ const localVue = createLocalVue();
 library.add(fas);
 localVue.component('font-awesome-icon', FontAwesomeIcon);
 localVue.use(VueRouter);
+localVue.use(Vuex);
 
 const router = new VueRouter();
-const $route = {
-  path: '/testpath'
-}
+
+const store = new Vuex.Store({
+  modules: {
+    navitem: {
+      namespaced: true,
+      state: () => ({
+        label: "menu1",
+        icon: "camera",
+        route: "/someroute",
+        isActive: false,
+      })
+    }
+  }
+})
 
 describe('NavListItem.vue', () => {
-  const label = "test label"
+  // const label = "test label"
+  const namespace = "navitem"
   const navFactory = (propsData) => {
     return mount(NavListItem, {
       mocks: {
@@ -28,11 +42,12 @@ describe('NavListItem.vue', () => {
         // $route: $route
       },
       propsData: {
-        label,
+        namespace,
         ...propsData
       },
       localVue,
-      router
+      router,
+      store
     })
   }
   
@@ -45,47 +60,40 @@ describe('NavListItem.vue', () => {
   it('renders label when passed', () => {
     const wrapper = navFactory()
 
-    expect(wrapper.text()).toMatch(label)
+    expect(wrapper.find(".label").text()).toBe("menu1")
   })
 
   it('renders icon when passed', () => {
-    const icon = 'camera'
-    const wrapper = navFactory({ icon: icon })
+    const wrapper = navFactory()
 
-    expect(wrapper.find(`[data-icon=${icon}`)).toBeTruthy();
+    expect(wrapper.find(`[data-icon=${store.state[namespace].icon}`)).toBeTruthy();
   })
 
   it('emits clicked on label click', async () => {
-    const btnJoin = "1"
-    const wrapper = navFactory({ join: btnJoin })
+    const wrapper = navFactory()
     
     wrapper.find(".label").trigger("click")
     expect(wrapper.emitted().clicked).toEqual([[]]);
   })
 
   it('emits clicked on icon click', async () => {
-    const btnJoin = "1"
-    const wrapper = navFactory({ icon: "camera", join: btnJoin })
+    const wrapper = navFactory()
     
     wrapper.find(".icon").trigger("click")
     expect(wrapper.emitted().clicked).toEqual([[]]);
   })
 
-  it('routes to the routeTo param on icon click', () => {
-    const icon = "camera"
-    const btnJoin = "1"
-    const wrapper = navFactory({icon: icon, join: btnJoin, routeTo: $route.path})
+  it('routes to the route state on icon click', () => {
+    const wrapper = navFactory()
     wrapper.find(".icon").trigger("click")
 
-    expect(wrapper.vm.$route.path).toEqual($route.path);
+    expect(wrapper.vm.$route.path).toEqual(store.state.[namespace].route);
   })
 
-  it('routes to the routeTo param on label click', () => {
-    const icon = "camera"
-    const btnJoin = "1"
-    const wrapper = navFactory({icon: icon, join: btnJoin, routeTo: $route.path})
+  it('routes to the route state on label click', () => {
+    const wrapper = navFactory()
     wrapper.find(".label").trigger("click")
 
-    expect(wrapper.vm.$route.path).toEqual($route.path);
+    expect(wrapper.vm.$route.path).toEqual(store.state.[namespace].route);
   })
 })
