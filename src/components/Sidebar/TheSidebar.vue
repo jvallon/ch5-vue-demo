@@ -1,7 +1,7 @@
 <template>
   <div class="sidebar-container">
     <nav-list class="navlist" :items="navListItems" :namespace="'mainnav'"></nav-list>
-    <hr class="divider">
+    <div class="line"/>
     <volume-horizontal class="volume" :showButtons="true"></volume-horizontal>
   </div>
 </template>
@@ -29,11 +29,12 @@ export default {
   flex-direction: column;
 }
 
-.divider {
+.line {
   width: 95%;
-  border: 1px solid #aaa;
+  margin-left: 2%;
+  margin-right: 2%;
   margin-top: auto;
-  margin-bottom: 0;
+  border-bottom: 1px solid #aaa;
 }
 
 </style>

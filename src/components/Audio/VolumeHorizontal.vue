@@ -1,11 +1,11 @@
 <template>
   <div class="volume-container">
     <font-awesome-icon class="icon" :icon="['fas', 'volume-mute']"></font-awesome-icon>
-    <font-awesome-icon class="icon" :icon="['fas', 'volume-down']" v-if="showButtons"></font-awesome-icon>
+    <font-awesome-icon class="icon" :icon="['fas', 'minus']" v-if="showButtons"></font-awesome-icon>
     <div class="slider-container">
       <input type="range" min="1" max="100" value="50" class="slider" id="volume">
     </div>
-    <font-awesome-icon class="icon" :icon="['fas', 'volume-up']" v-if="showButtons"></font-awesome-icon>
+    <font-awesome-icon class="icon" :icon="['fas', 'plus']" v-if="showButtons"></font-awesome-icon>
   </div>
 </template>
 
@@ -24,7 +24,6 @@ export default {
   flex-direction: row;
   align-content: center;
   justify-content: space-evenly;
-  // border-top: 1px solid #aaa;
 }
 
 .icon {
@@ -38,7 +37,8 @@ export default {
   flex-direction: column;
   justify-content: center;
   width: 75%;
-  margin-right: 1em;
+  padding: 16px;
+  // margin-right: 1em;
 }
 
 .slider {
@@ -50,7 +50,6 @@ export default {
   background: #d3d3d3;
   outline: 2px;
   outline-color: darkblue;
-  ;
 }
 
 /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
