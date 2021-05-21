@@ -5,14 +5,13 @@
         <the-header></the-header>
       </div>
       <div class="main">
-        <div class="menu-container">
-          <nav-list :items="navListItems" :namespace="'mainnav'"></nav-list>
+        <div class="sidebar-container">
+          <the-sidebar></the-sidebar>
         </div>
         <div class="nav-area">
           <router-view></router-view>
         </div>
       </div>
-      <div class="footer"></div>
     </div>
   </div>
 </template>
@@ -20,14 +19,15 @@
 <script>
 
 import TheHeader from '@/components/Header/TheHeader';
-import NavList from '@/components/Navigation/NavList';
+import TheSidebar from '@/components/Sidebar/TheSidebar';
 import navitems from '@/assets/data/navitems.json';
 
 export default {
   name: 'App',
   components: {
     TheHeader,
-    NavList
+    TheSidebar,
+    // NavList
   },
   data() {
     return {
@@ -84,16 +84,15 @@ body::-webkit-scrollbar, .main-controls::-webkit-scrollbar, .page-controls::-web
 .grid-container {
   height: 100vh;
   display: grid;
-  grid-gap: 5px;
+  /* grid-gap: 5px; */
   grid-template-areas: 
-    'header header header header header'
-    'main main main main main'
-    'footer footer footer footer footer';
+    'header'
+    'main'
 }
 
 .header {
   grid-area: header;
-  height: 10vh;
+  min-height: 10vh;
   margin: 0px;
   padding: 0px;
   /* border-style: solid; */
@@ -101,22 +100,22 @@ body::-webkit-scrollbar, .main-controls::-webkit-scrollbar, .page-controls::-web
 
 .footer {
   grid-area: footer;
-  min-height: 10vh;
+  max-height: 10vh;
   /* border-style: solid; */
 }
 
 .main {
   grid-area: main;
-  min-height: 70vh;
+  height: 90vh;
   display: grid;
   grid-column-gap: 5px;
   grid-template-columns: 1fr 30vw ;
   grid-template-areas:
-    'main menu';
+    'main sidebar';
 }
 
-.menu-container {
-  grid-area: menu;
+.sidebar-container {
+  grid-area: sidebar;
   max-width: 30vw;
   /* border-style: solid; */
 }
