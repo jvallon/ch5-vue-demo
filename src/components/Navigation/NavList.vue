@@ -40,8 +40,7 @@ export default {
 <style lang="scss">
 
 .nav-main {
-  height: 100%;
+  // height: 100%;
   margin: 0;
-  border-left: 1px solid #333;
 }
 </style>
