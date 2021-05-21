@@ -34,7 +34,7 @@ export default {
 <style>
 hr {
   height: 0;
-  width: 95%;
+  width: 98%;
   border-width: 1px;
   color: #333;
 }
