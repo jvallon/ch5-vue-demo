@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <div class="grid-container">
-      <div class="header"></div>
+      <div class="header">
+        <the-header></the-header>
+      </div>
       <div class="main">
         <div class="menu-container">
           <nav-list :items="navListItems" :namespace="'mainnav'"></nav-list>
@@ -23,7 +25,7 @@
 // import HelloWorld from './components/HelloWorld.vue'
 
 import { mapState, mapActions } from 'vuex'
-// import Display from './components/Display.vue';
+import TheHeader from '@/components/Header/TheHeader';
 import NavList from '@/components/Navigation/NavList';
 import * as disp1 from '@/assets/data/tv.js';
 import * as disp2 from '@/assets/data/tv2.js';
@@ -32,7 +34,7 @@ import navitems from '@/assets/data/navitems.json';
 export default {
   name: 'App',
   components: {
-    // Display,
+    TheHeader,
     NavList
   },
   data() {
@@ -116,42 +118,38 @@ body::-webkit-scrollbar, .main-controls::-webkit-scrollbar, .page-controls::-web
 
 .header {
   grid-area: header;
-  min-height: 12vh;
+  height: 10vh;
   margin: 0px;
   padding: 0px;
-  border-style: solid;
+  /* border-style: solid; */
 }
 
 .footer {
   grid-area: footer;
   min-height: 10vh;
-  border-style: solid;
+  /* border-style: solid; */
 }
 
 .main {
   grid-area: main;
   min-height: 70vh;
-  max-height: 78vh;
-  /* border-style: solid; */
   display: grid;
   grid-column-gap: 5px;
-  grid-template-columns: 25vw 1fr ;
+  grid-template-columns: 1fr 30vw ;
   grid-template-areas:
-    'menu main ';
+    'main menu';
 }
 
 .menu-container {
   grid-area: menu;
-  max-width: inherit;
-  border-style: solid;
-  overflow: scroll;
+  max-width: 30vw;
+  /* border-style: solid; */
 }
 
 .nav-area {
   grid-area: main;
-  min-height: 70vh;
-  max-height: 78vh;
-  border-style: solid;
+  /* height: 80vh; */
+  /* border-style: solid; */
 }
 
 </style>

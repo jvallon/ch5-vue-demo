@@ -42,5 +42,6 @@ export default {
 .nav-main {
   height: 100%;
   margin: 0;
+  border-left: 1px solid #333;
 }
 </style>
