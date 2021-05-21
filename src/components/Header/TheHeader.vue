@@ -1,17 +1,17 @@
 <template>
-  <div>
-    <div class="header-container">
-      <img class="logo" src="@/assets/logo.png"/>
+  <div class="container">
+    <div class="header">
+      <img class="logo" src="@/assets/bmw-logo.png"/>
       <div class="title">{{ roomName }}</div>
       <div></div>
-      <div class="subheader">
+      <div class="options">
         <font-awesome-icon class="icon" :icon="['fas', 'power-off']"></font-awesome-icon>
         <font-awesome-icon class="icon" :icon="['fas', 'cog']"></font-awesome-icon>
         <font-awesome-icon class="icon" :icon="['fas', 'calendar-alt']"></font-awesome-icon>
         <font-awesome-icon class="icon" :icon="['fas', 'bell']"></font-awesome-icon>
       </div>
     </div>
-    <hr>
+    <div class="line"></div>
   </div>
 </template>
 
@@ -31,16 +31,14 @@ export default {
 }
 </script>
 
-<style>
-hr {
-  height: 0;
+<style lang="scss" scoped>
+.line {
   width: 98%;
-  border-width: 1px;
-  color: #333;
+  margin: 0 1%;
+  border-bottom: 1px solid #aaa;
 }
 
-.header-container {
-  height: 100%;
+.header {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -50,6 +48,7 @@ hr {
   height: 3rem;
   /* width: 2rem; */
   margin-left: 1rem;
+  margin-right: 1rem;
   max-height: 5rem;
 }
 
@@ -59,7 +58,7 @@ hr {
   text-align: left;
 }
 
-.subheader {
+.options {
   min-width: 30vw;
   margin-left: auto;
   align-self: right;
