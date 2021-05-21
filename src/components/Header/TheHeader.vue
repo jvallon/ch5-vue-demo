@@ -4,7 +4,7 @@
       <img class="logo" src="@/assets/bmw-logo.png"/>
       <div class="title">{{ roomName }}</div>
       <div></div>
-      <div class="options">
+      <div class="toolbar">
         <font-awesome-icon class="icon" :icon="['fas', 'power-off']"></font-awesome-icon>
         <font-awesome-icon class="icon" :icon="['fas', 'cog']"></font-awesome-icon>
         <font-awesome-icon class="icon" :icon="['fas', 'calendar-alt']"></font-awesome-icon>
@@ -45,8 +45,7 @@ export default {
 }
 
 .logo {
-  height: 3rem;
-  /* width: 2rem; */
+  height: 4rem;
   margin-left: 1rem;
   margin-right: 1rem;
   max-height: 5rem;
@@ -58,7 +57,7 @@ export default {
   text-align: left;
 }
 
-.options {
+.toolbar {
   min-width: 30vw;
   margin-left: auto;
   align-self: right;
