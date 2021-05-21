@@ -2,7 +2,7 @@
   <div class="sidebar-container">
     <nav-list class="navlist" :items="navListItems" :namespace="'mainnav'"></nav-list>
     <hr class="divider">
-    <volume-horizontal class="volume"></volume-horizontal>
+    <volume-horizontal class="volume" :showButtons="true"></volume-horizontal>
   </div>
 </template>
 

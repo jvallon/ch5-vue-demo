@@ -1,15 +1,20 @@
 <template>
   <div class="volume-container">
     <font-awesome-icon class="icon" :icon="['fas', 'volume-mute']"></font-awesome-icon>
+    <font-awesome-icon class="icon" :icon="['fas', 'volume-down']" v-if="showButtons"></font-awesome-icon>
     <div class="slider-container">
       <input type="range" min="1" max="100" value="50" class="slider" id="volume">
     </div>
+    <font-awesome-icon class="icon" :icon="['fas', 'volume-up']" v-if="showButtons"></font-awesome-icon>
   </div>
 </template>
 
 <script>
 export default {
-
+  name: 'VolumeHorizontal',
+  props: {
+    showButtons: { type: Boolean }
+  }
 }
 </script>
 
