@@ -1,11 +1,11 @@
 <template>
   <div class="volume-container">
-    <font-awesome-icon class="icon" :icon="['fas', 'volume-mute']"></font-awesome-icon>
-    <font-awesome-icon class="icon" :icon="['fas', 'minus']" v-if="showButtons"></font-awesome-icon>
+    <font-awesome-icon class="icon mute" :icon="['fas', 'volume-mute']"></font-awesome-icon>
+    <font-awesome-icon class="icon down" :icon="['fas', 'minus']" v-if="showButtons"></font-awesome-icon>
     <div class="slider-container">
       <input type="range" min="1" max="100" value="50" class="slider" id="volume">
     </div>
-    <font-awesome-icon class="icon" :icon="['fas', 'plus']" v-if="showButtons"></font-awesome-icon>
+    <font-awesome-icon class="icon up" :icon="['fas', 'plus']" v-if="showButtons"></font-awesome-icon>
   </div>
 </template>
 
