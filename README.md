@@ -4,6 +4,9 @@ This project is a starting point / demonstration of using Crestron HTML5 librari
 
 I plan to continue building out this project as I learn more about Vue.js, Crestron's CrComLib and Ch5 libraries, and web development in general.
 
+## Gotchas
+- Chrome version on the TSW panels as of writing this is 72.0. Keep that in mind for support for things like `gap` for flexbox. 
+
 ## Project setup
 
 ```
